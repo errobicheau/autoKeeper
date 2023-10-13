@@ -8,4 +8,22 @@ router
     .route('/')
     .get(mainController.loginPage)
 
+router
+    .route('/home')
+    .get(mainController.homePage)
+
+router
+    .route('/log')
+    .get(mainController.logPage)
+    .post(mainController.newLog)
+
+router
+    .route('/edit/:id')
+    .get(mainController.editPage)
+    .post(mainController.updateLog)
+
+router
+    .route('/delete/:id')
+    .post(mainController.deleteLog)
+
 module.exports = router

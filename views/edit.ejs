@@ -6,7 +6,39 @@
     <title>Edit Log</title>
 </head>
 <body>
+    <%- include('partials/navbar/')%>
+
     <h1>Edit Log</h1>
-    <h2>Nice, this works.</h2>
+
+    <div>
+        <div>
+          <div>
+            <h2>Log Day</h2>
+            <form action="/edit/<%= log._id %>" method="POST"> <!-- add multipart form data for img-->
+              <div>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" value="<%= log.date %>" required>
+              </div>
+              <div>
+                <label for="workout1">Workout 1</label>
+                <input type="text" id="workout1" name="workout1" value="<%= log.workout1 %>" required>
+              </div>
+              <div>
+                <label for="workout2">Workout 2</label>
+                <input type="text" id="workout2" name="workout2" value="<%= log.workout2 %>" required>
+              </div>
+              <div>
+                <label for="readingNotes">Reading Notes</label>
+                <input type="text" id="readingNotes" name="readingNotes" value="<%= log.readingNotes %>" required>
+              </div>
+              <div>
+                <label for="otherNotes">Other Notes</label>
+                <input type="text" id="otherNotes" name="otherNotes" value="<%= log.otherNotes %>" required>
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 </body>
 </html>

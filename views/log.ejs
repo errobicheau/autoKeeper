@@ -6,7 +6,39 @@
     <title>Log Day</title>
 </head>
 <body>
+    <%- include('partials/navbar/') %>
+
     <h1>Log Day</h1>
-    <h2>Nice, this works.</h2>
+
+    <div>
+        <div>
+          <div>
+            <h2>Log Day</h2>
+            <form action="/log" method="POST"> <!-- add multipart form data for img-->
+              <div>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div>
+                <label for="workout1">Workout 1</label>
+                <input type="text" id="workout1" name="workout1" required>
+              </div>
+              <div>
+                <label for="workout2">Workout 2</label>
+                <input type="text" id="workout2" name="workout2" required>
+              </div>
+              <div>
+                <label for="readingNotes">Reading Notes</label>
+                <input type="text" id="readingNotes" name="readingNotes" required>
+              </div>
+              <div>
+                <label for="otherNotes">Other Notes</label>
+                <input type="text" id="otherNotes" name="otherNotes" required>
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 </body>
 </html>

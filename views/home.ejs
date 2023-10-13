@@ -6,7 +6,33 @@
     <title>Profile Home</title>
 </head>
 <body>
-    <h1>Profile Page</h1>
-    <h2>Test h2</h2>
+    <%- include('partials/navbar/') %>
+
+    <h1>Home Page</h1>
+
+    <div>
+    <% logs.forEach(log => { %>
+    <div>
+        <div>
+            <img src="#" alt="">
+        </div>
+        <div>
+            <h5><%= log.date %></h5>
+            <p>
+                Workout 1: <%= log.workout1 %> <br>
+                Workout 2: <%= log.workout2 %> <br>
+                Reading Notes: <%= log.readingNotes %> <br>
+                Other Notes: <%= log.otherNotes %>
+            </p>
+        </div>
+        <div>
+            <a href="/edit/<%= log._id %>">Edit</a>
+            <form action="/delete/<%=log._id %>" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    <% }) %>
+    </div>
 </body>
 </html>
