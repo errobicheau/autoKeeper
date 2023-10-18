@@ -7,6 +7,10 @@ const logSchema = new mongoose.Schema({
     readingNotes: String,
     otherNotes: String,
     image:String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 module.exports = mongoose.model('Log', logSchema)
