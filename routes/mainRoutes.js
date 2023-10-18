@@ -4,12 +4,9 @@ const express = require('express')
 const mainController = require('../controllers/mainController')
 const router = express.Router()
 
-router
-    .route('/')
-    .get(mainController.loginPage)
 
 router
-    .route('/home')
+    .route('/')
     .get(mainController.homePage)
 
 router

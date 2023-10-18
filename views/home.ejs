@@ -22,15 +22,18 @@
                 Workout 1: <%= log.workout1 %> <br>
                 Workout 2: <%= log.workout2 %> <br>
                 Reading Notes: <%= log.readingNotes %> <br>
-                Other Notes: <%= log.otherNotes %>
+                Other Notes: <%= log.otherNotes %> <br>
+                Posted By <%= log.user.username %>
             </p>
         </div>
+        <% if (currentUser && log.user._id.equals(currentUser._id)) {%>
         <div>
             <a href="/edit/<%= log._id %>">Edit</a>
             <form action="/delete/<%=log._id %>" method="POST">
                 <button type="submit">Delete</button>
             </form>
         </div>
+        <% } %>
     </div>
     <% }) %>
     </div>
