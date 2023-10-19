@@ -10,7 +10,7 @@ const mainRoutes = require('./routes/mainRoutes')
 const userRoutes = require('./routes/userRoutes')
 const User = require('./models/userModel')
 
-const PORT = process.env.port || 7500
+const PORT = process.env.port || 3500
 
 connectDB()
 

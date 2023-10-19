@@ -1,14 +1,24 @@
 const Log = require('../models/logModel')
-// require multer or photo service here
+const cloudinary = require('../config/cloudinary')
 
 const logPage = (req, res) =>  {
-    res.render('log', req.user)
+    res.render('log', {user: req.user})
+}
+
+const landingPage = (req, res) => {
+    res.render('landing', {user: req.user})
 }
 
 const homePage = async (req, res) => {
     try {
-        const logs = await Log.find().populate('user')
+    if(req.isAuthenticated()) {
+        const userId = req.user._id
+        const logs = await Log.find({ user: userId}).populate('user')
         res.render('home', {logs: logs, user: req.user})
+    } else {
+        res.redirect('/login')
+    }
+
     } catch (error) {
         console.log(error)
     }
@@ -17,17 +27,22 @@ const homePage = async (req, res) => {
 const newLog = async (req, res) => {
     console.log(req.body)
     try {
+        // const result = await cloudinary.uploader.upload(req.file);
+
+        
         const log = new Log({
             date: req.body.date,
             workout1: req.body.workout1,
             workout2: req.body.workout2,
             readingNotes: req.body.readingNotes,
             otherNotes: req.body.otherNotes,
+            // image: result.secure_url,
+            // cloudinaryId: result.public_id,
             user: req.user._id //attach logged in user id to new log
     })
 
     await log.save()
-    res.redirect('/')
+    res.redirect('/home')
 
     } catch (error) {
         console.log(error)
@@ -50,7 +65,7 @@ const updateLog = async (req, res) => {
         if(log.user.equals(req.user._id)) {
         await Log.findByIdAndUpdate(req.params.id, req.body)
         }
-        res.redirect('/')
+        res.redirect('/home')
     } catch (error) {
         console.log(error)
     }
@@ -64,7 +79,7 @@ const deleteLog = async (req, res) => {
         if(log.user.equals(req.user._id)) {
         await Log.findByIdAndRemove(req.params.id)
         }
-        res.redirect('/')
+        res.redirect('/home')
     } catch (error) {
         console.log(error)
     }
@@ -76,5 +91,6 @@ module.exports = {
     newLog,
     editPage,
     updateLog,
-    deleteLog
+    deleteLog,
+    landingPage
 }

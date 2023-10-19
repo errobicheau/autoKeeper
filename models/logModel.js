@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const cloudinary = require('../config/cloudinary')
 
 const logSchema = new mongoose.Schema({
     date: Date,
@@ -7,6 +8,7 @@ const logSchema = new mongoose.Schema({
     readingNotes: String,
     otherNotes: String,
     image:String,
+    cloudinaryId: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

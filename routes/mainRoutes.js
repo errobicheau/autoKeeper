@@ -7,6 +7,10 @@ const router = express.Router()
 
 router
     .route('/')
+    .get(mainController.landingPage)
+
+router
+    .route('/home')
     .get(mainController.homePage)
 
 router

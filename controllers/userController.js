@@ -10,7 +10,7 @@ const registerPage = (req, res) => {
 }
 
 const loginUser = passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/home',
     failureRedirect: '/login',
     failureFlash: false
 })
@@ -22,7 +22,7 @@ const registerUser = async (req, res) => {
       const user = new User({ username });
       await User.register(user, password);
       passport.authenticate('local')(req, res, function () {
-        res.redirect('/');
+        res.redirect('/home');
       });
     } catch (err) {
       console.log(err);
@@ -33,7 +33,7 @@ const registerUser = async (req, res) => {
 const logoutUser = (req, res) => {
     req.logout(function(err) {
         if(err) {return next(err)}
-        res.redirect('/')
+        res.redirect('/home')
     })
 }
 
