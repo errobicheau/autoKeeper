@@ -25,29 +25,36 @@ const homePage = async (req, res) => {
 }
 
 const newLog = async (req, res) => {
-    console.log(req.body)
-    try {
-        // const result = await cloudinary.uploader.upload(req.file);
+    console.log(req.body);
+    console.log(req.files)
 
-        
-        const log = new Log({
-            date: req.body.date,
-            workout1: req.body.workout1,
-            workout2: req.body.workout2,
-            readingNotes: req.body.readingNotes,
-            otherNotes: req.body.otherNotes,
-            // image: result.secure_url,
-            // cloudinaryId: result.public_id,
-            user: req.user._id //attach logged in user id to new log
-    })
+    // Check if a file was uploaded
+    if (req.files && req.files.file) {
+        const file = req.files.file; // Access the uploaded file
+        try {
+            const result = await cloudinary.uploader.upload(file.tempFilePath);
+            const log = new Log({
+                date: req.body.date,
+                workout1: req.body.workout1,
+                workout2: req.body.workout2,
+                readingNotes: req.body.readingNotes,
+                otherNotes: req.body.otherNotes,
+                image: result.secure_url,
+                cloudinaryId: result.public_id,
+                user: req.user._id //attach logged in user id to new log
+            })
 
-    await log.save()
-    res.redirect('/home')
-
-    } catch (error) {
-        console.log(error)
-    }
+            await log.save()
+            res.redirect('/home')
+            
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+     console.log('Error: No File Upload Found')
 }
+}
+
 
 const editPage = async (req, res) => {
     try {

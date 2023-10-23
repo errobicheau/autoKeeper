@@ -11,6 +11,7 @@
     <h1>Home Page</h1>
 
     <div>
+    <% logs.sort((a, b) => b.date - a.date) %>
     <% logs.forEach(log => { %>
     <div>
         <div>
@@ -23,7 +24,8 @@
                 Workout 2: <%= log.workout2 %> <br>
                 Reading Notes: <%= log.readingNotes %> <br>
                 Other Notes: <%= log.otherNotes %> <br>
-                Posted By <%= log.user.username %>
+                Posted By <%= log.user.username %> <br>
+                <img src="<%= log.image %>" alt="Log Image">
             </p>
         </div>
         <% if (currentUser && log.user._id.equals(currentUser._id)) {%>

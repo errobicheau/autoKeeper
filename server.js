@@ -9,6 +9,7 @@ const connectDB = require('./config/connectDB')
 const mainRoutes = require('./routes/mainRoutes')
 const userRoutes = require('./routes/userRoutes')
 const User = require('./models/userModel')
+const fileUpload = require('express-fileupload')
 
 const PORT = process.env.port || 3500
 
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user
     next()
 })
+app.use(fileUpload({useTempFiles: true}))
 
 //ROUTES//
 app.use('/', mainRoutes)
