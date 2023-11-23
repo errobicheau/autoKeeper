@@ -4,26 +4,28 @@ const app = express()
 const mongoose = require('mongoose')
 const session = require('express-session')
 const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
+require('./config/passport')
 const connectDB = require('./config/connectDB')
 const mainRoutes = require('./routes/mainRoutes')
 const userRoutes = require('./routes/userRoutes')
+const authRoutes = require('./routes/authRoutes')
 const User = require('./models/userModel')
 const fileUpload = require('express-fileupload')
 
 const PORT = process.env.port || 3500
 
+//Require passport
+require('./config/passport')(passport)
+
 connectDB()
 
-//MIDDLEWARE//
+//--- MIDDLEWARE ---//
+
+//express-session
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 
-//VIEW ENGINE//
-app.set('view engine', 'ejs')
-
-//express-session
 app.use(session({
     secret: 'this is 75Strong',
     resave: false,
@@ -34,10 +36,8 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-passport.use(new LocalStrategy(User.authenticate()))
-    //scrambling and unscrambling password
-passport.serializeUser(User.serializeUser())
-passport.deserializeUser(User.deserializeUser())
+//-- VIEW ENGINE --//
+app.set('view engine', 'ejs')
 
 // passing current user info to all routes
 app.use((req, res, next) => {
@@ -46,11 +46,13 @@ app.use((req, res, next) => {
 })
 app.use(fileUpload({useTempFiles: true}))
 
-//ROUTES//
+//-- ROUTING --//
 app.use('/', mainRoutes)
 app.use('/', userRoutes)
+app.use('/auth', authRoutes)
 
-//DATABASE AND SERVER CONNECT//
+
+//-- DATABASE AND SERVER CONNEC --//
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

@@ -1,5 +1,6 @@
 const passport = require('passport')
 const User = require('../models/userModel')
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const loginPage = (req, res) => {
     res.render('login', { user: req.user })
@@ -43,5 +44,4 @@ module.exports = {
     registerPage,
     registerUser,
     logoutUser
-
 }

@@ -55,7 +55,6 @@ const newLog = async (req, res) => {
 }
 }
 
-
 const editPage = async (req, res) => {
     try {
         const log = await Log.findById(req.params.id)
