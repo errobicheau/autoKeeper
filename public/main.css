@@ -35,7 +35,46 @@ input[type="password"]:focus {
 
 
 
-body {
-    background-image: radial-gradient(white 5%, black);
-    /* You can adjust the angle as needed using 'to' keyword values */
+
+/* FORM STYLES */
+::placeholder {
+    color: rgba(255, 255, 255, 0.424) !important;
+}
+
+.form-outline input:focus {
+    border-color: rgb(216, 119, 65);
+}
+
+.form-outline input:focus {
+    border-color: 216, 119, 65;
+    box-shadow: 0 0 0.2rem 0.1rem rgba(216, 119, 65); /* Change the color and opacity as needed */
+}
+
+/* Add this to your main.css or a custom stylesheet */
+
+.google-login-button {
+    background-color: #4285F4; /* Google Blue */
+    color: #fff; /* White text */
+    border: 1px solid #4285F4; /* Google Blue border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.google-login-button:hover {
+    background-color: #3e78e6; /* Darker Google Blue on hover */
+    border-color: #3e78e6; /* Darker Google Blue border on hover */
+    color: #fff; /* White text on hover */
+}
+
+
+/* IMAGE STYLES */
+
+/* Add this CSS in your stylesheet or within a style tag in your HTML file */
+.img-small {
+    max-width: 350px;
+    /* You can also set a max-height if needed */
+    /* max-height: 150px; */
 }

@@ -6,10 +6,11 @@
     <title>Login User</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
+    
 </head>
-<body>
+<body> 
 
-    <%- include('partials/navbar/')%>
+    <!-- <%- include('partials/navbar/')%> -->
     <img src="logo.svg" alt="">
 
     <section class="vh-100 gradient-custom">
@@ -21,34 +22,33 @@
       
                   <div class="mb-md-5 mt-md-4 pb-5">
                     
-                    <img src="/images/logo.svg" alt="75Strong Logo">
+                    <img src="/images/logo.svg" alt="75Strong Logo" class="mx-auto px-4">
       
-                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                    <p class="text-white-50 mb-5">Please enter your username and password below.</p>
+                    <h2 class="fw-bold mb-2 text-uppercase mx-auto p-2 pt-3">Login</h2>
+                    <p class="text-white-50 mb-3 mx-auto">Please enter your username and password below.</p>
 
                 <form action="/login" method="POST">
                     <div class="form-outline form-white mb-4">
-                      <input type="text" id="username" class="form-control form-control-lg" name="username">
-                      <label for="username" class="form-label" id="username">Username</label>
+                      <input type="text" id="username" class="form-control form-control-lg" name="username" placeholder="Username">
+                      <!-- <label for="username" class="form-label" id="username"></label> -->
                     </div>
       
                     <div class="form-outline form-white mb-4">
-                      <input type="password" id="password" class="form-control form-control-lg" name="password" required>
-                      <label for="password" class="form-label">Password</label>
+                      <input type="password" id="password" class="form-control form-control-lg" name="password" required placeholder="Password">
+                      <!-- <label for="password" class="form-label">Password</label> -->
                     </div>
       
                     <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
-      
-                    <button class="btn btn-outline-light btn-lg px-5" type="submit">LOGIN</button> <br>
+  
+                    <button class="btn btn-outline-light btn-lg px-5 mb-2" type="submit">Login</button> <br>
 
-                     <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="/register">Don't have an account? Register here.</a></p>
+                    <span class="
+                    text-white-50">or</span><br>
+
+                    <a href="/auth/google" class="google-login-button btn btn-outline-light mt-2">Login with Google<i class="fab fa-google"></i></a>
+
+                     <p class="small mt-2 mb-2 pb-lg-2 pt-3"><a class="text-white-50" href="/register">Don't have an account? Register here.</a></p>
                 </form>
-      
-                    <!-- <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                      <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                      <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                      <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                    </div> -->
       
                   </div>
       
