@@ -16,15 +16,15 @@ router
 router
     .route('/log')
     .get(mainController.logPage)
-    .post(mainController.newLog)
+    .post(mainController.newService)
 
 router
     .route('/edit/:id')
     .get(mainController.editPage)
-    .post(mainController.updateLog)
+    .post(mainController.updateService)
 
 router
     .route('/delete/:id')
-    .post(mainController.deleteLog)
+    .post(mainController.deleteService)
 
 module.exports = router

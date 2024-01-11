@@ -17,35 +17,33 @@
         <h5 class="mx-auto text-center mb-3">View your logs below</h5>
 
 <div class="container">
-    <% logs.sort((a, b) => b.date - a.date) %>
+    <% services.sort((a, b) => b.date - a.date) %>
     <% let index = 1; %>   
-    <% logs.forEach(log => { %>
+    <% services.forEach(service => { %>
     <div class="accordion mx-auto">
         <div class="accordion-item">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
-                <h5 class="accordion-header"><%= log.date %></h5>
+                <h5 class="accordion-header">
+                    Service <%= service.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %>
+                </h5>
             </button>
             <div id="collapse<%= index %>" class="accordion-collapse collapse hide" data-bs-parent="#accordionExample">
                 <div class="accordion-body d-flex">
                     <div class="text-content">
                     <p>
-                        Workout 1: <%= log.workout1 %> <br>
-                        Workout 2: <%= log.workout2 %> <br>
-                        Reading Notes: <%= log.readingNotes %> <br>
-                        Other Notes: <%= log.otherNotes %> <br>
-                        Posted By <%= log.user.username %> <br>
+                        Mileage: <%= service.mileage %> <br>
+                        Service Performed: <%= service.typeOfService %> <br>
+                        Service Notes: <%= service.serviceNotes %> <br>
+                        Posted By <%= service.user.username %> <br>
                     </p>
-                    <% if (currentUser && log.user._id.equals(currentUser._id)) {%>
+                    <% if (currentUser && service.user._id.equals(currentUser._id)) {%>
                         <div class="d-flex">
-                            <a href="/edit/<%= log._id %>" class="btn btn-primary mx-2">Edit</a>
+                            <a href="/edit/<%= service._id %>" class="btn btn-primary mx-2">Edit</a>
 
-                            <form action="/delete/<%= log._id %>" method="POST">
+                            <form action="/delete/<%= service._id %>" method="POST">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
-                    </div>
-                    <div class="image-content ms-auto">
-                        <img src="<%= log.image %>" alt="Log Image" class="img-fluid img-small mx-auto">
                     </div>
                     <% } %>
                 </div>

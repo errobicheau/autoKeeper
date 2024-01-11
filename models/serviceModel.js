@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 const cloudinary = require('../config/cloudinary')
 
-const logSchema = new mongoose.Schema({
+const serviceSchema = new mongoose.Schema({
     date: Date,
-    workout1: String,
-    workout2: String,
-    readingNotes: String,
-    otherNotes: String,
+    mileage: String,
+    typeOfService: String,
+    serviceNotes: String,
     image:String,
     cloudinaryId: String,
     user: {
@@ -15,4 +14,4 @@ const logSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Log', logSchema)
+module.exports = mongoose.model('Service', serviceSchema)
