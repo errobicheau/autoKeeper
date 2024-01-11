@@ -10,20 +10,33 @@
 <body>
 
     <section class="vh-100 gradient-custom">
-        <div class="container py-5 h-100">
+        
+      <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-top h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-              <div class="" style="border-radius: 1rem;">
-                <div class="card-body p-5 text-center">
-      
-                  <div class="mb-md-5 mt-md-4 pb-5">
-      
-                    <h2 class="fw-bold mb-2 text-uppercase">Welcome to 75Strong</h2>
-                    <p class="mb-5">Please enter your login and password!</p>
-                    <div class="d-grid gap-2">
-                        <a href="/login" class="btn btn-dark btn-lg">Login</a>
-                        <a href="/register" class="btn btn-dark btn-lg">Register</a>
-                        <a href="/auth/google" class="google-login-button">Login with Google</a>
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+                <img src="/images/logos/logoSVG.svg" alt="" class="img-fluid mt-5 mb-1">
+                <div class="  card-body p-3 text-center">
+                    <p class="mb-3">Welcome to AutoKeeper. Please login to view your maintenance records.</p>
+                    <div class="d-grid gap-1">
+                      <form action="/login" method="POST">
+                        <div class="form-outline form-white mb-2">
+                          <input 
+                          type="text" 
+                          id="username" 
+                          class="form-control form-control-lg" name="username" 
+                          placeholder="Username">
+                        </div>
+                        <div class="form-outline form-white mb-4">
+                          <input 
+                          type="password" 
+                          id="password" 
+                          class="form-control form-control-lg" name="password"
+                          required 
+                          placeholder="Password">
+                        </div>
+                        <button class="btn btn-custom" type="submit">Login -></button> <br>
+
+                        <p class="small mt-2 mb-2 pb-lg-2 pt-3"><a class="text-black" href="/register">Don't have an account? Register here.</a></p>
                     </div>
                   </div>
                 </div>

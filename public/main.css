@@ -7,14 +7,14 @@
 
 input[type='text'],
 input[type="password"] {
-    background-color: RGB(34, 37, 31);
-    color: white;
+    background-color: lightgray;
+    color: black;
 }
 
 input[type='text']:focus,
 input[type="password"]:focus {
-    background-color: RGB(34, 37, 31);
-    color: white;
+    background-color: lightgray;
+    color: black;
 }
 
 #video-container {
@@ -38,16 +38,15 @@ input[type="password"]:focus {
 
 /* FORM STYLES */
 ::placeholder {
-    color: rgba(255, 255, 255, 0.424) !important;
+    color: rgba(0, 0, 0, 0.424) !important;
 }
 
 .form-outline input:focus {
-    border-color: rgb(216, 119, 65);
+    border-color: rgb(93, 76, 238);
 }
 
 .form-outline input:focus {
-    border-color: 216, 119, 65;
-    box-shadow: 0 0 0.2rem 0.1rem rgba(216, 119, 65); /* Change the color and opacity as needed */
+    box-shadow: 0 0 0.2rem 0.1rem rgba(93, 76, 238); /* Change the color and opacity as needed */
 }
 
 /* Add this to your main.css or a custom stylesheet */
@@ -78,3 +77,53 @@ input[type="password"]:focus {
     /* You can also set a max-height if needed */
     /* max-height: 150px; */
 }
+
+.btn-custom {
+    font-size: 18px; /* Custom font size */
+    padding: 5px 10px; /* Custom padding */
+    color: black;
+    width: 80%; 
+}
+
+.btn-custom:hover {
+    border-color: rgb(93, 76, 238);
+    box-shadow: 0 0 0.2rem 0.1rem rgba(93, 76, 238); 
+}
+
+. {
+    border: 2px solid red;
+}
+
+
+.nav-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #031D44;
+    padding: 10px 0px;
+    margin: 0px 2px;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+  }
+  
+  .nav-link:hover {
+    opacity: 1;
+  }
+  
+  .nav-link::before {
+    transition: 300ms;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background-color: #031D44;
+  }
+  
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+  }
+  
+  .nav-link-ltr:hover::before {
+    width: 80%;
+  }
