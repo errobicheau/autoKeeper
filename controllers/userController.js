@@ -3,18 +3,22 @@ const User = require('../models/userModel')
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const loginPage = (req, res) => {
-    res.render('login', { user: req.user })
-}
-
-const registerPage = (req, res) => {
-    res.render('register', { user: req.user })
+    if(req.isAuthenticated()) {
+      res.redirect('/home')
+    } else {
+      res.render('login', { user: req.user })
+    }
 }
 
 const loginUser = passport.authenticate('local', {
     successRedirect: '/home',
-    failureRedirect: '/login',
+    failureRedirect: '/',
     failureFlash: false
 })
+
+const registerPage = (req, res) => {
+    res.render('register', { user: req.user })
+}
 
 const registerUser = async (req, res) => {
     try {
@@ -34,14 +38,15 @@ const registerUser = async (req, res) => {
 const logoutUser = (req, res) => {
     req.logout(function(err) {
         if(err) {return next(err)}
-        res.redirect('/home')
+        console.log('User Logged Out')
+        res.redirect('/')
     })
 }
 
 module.exports = {
-    loginPage,
     loginUser,
     registerPage,
     registerUser,
-    logoutUser
+    logoutUser,
+    loginPage
 }

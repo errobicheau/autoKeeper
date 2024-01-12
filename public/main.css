@@ -90,25 +90,28 @@ input[type="password"]:focus {
     box-shadow: 0 0 0.2rem 0.1rem rgba(93, 76, 238); 
 }
 
-. {
+.special {
+    color: rgb(93, 76, 238)
+}
+
+.red-border {
     border: 2px solid red;
 }
 
 
 .nav-link {
-    font-size: 14px;
-    text-transform: uppercase;
     text-decoration: none;
-    color: #031D44;
+    color: rgb(86, 87, 87);
     padding: 10px 0px;
     margin: 0px 2px;
     display: inline-block;
     position: relative;
-    opacity: 0.75;
+    opacity: 0.85;
   }
-  
+
   .nav-link:hover {
     opacity: 1;
+    color: black;
   }
   
   .nav-link::before {
@@ -116,7 +119,7 @@ input[type="password"]:focus {
     height: 2px;
     content: "";
     position: absolute;
-    background-color: #031D44;
+    background-color: rgb(93, 76, 238)
   }
   
   .nav-link-ltr::before {
@@ -127,3 +130,21 @@ input[type="password"]:focus {
   .nav-link-ltr:hover::before {
     width: 80%;
   }
+
+  .red:hover {
+    color: rgb(203, 0, 0);
+  }
+
+  .red:hover::before {
+    background-color: rgb(203, 0, 0);
+  }
+  .accordion-button:not(.collapsed) {
+    background-color: rgba(93, 76, 238, 0.1); /* Your desired background color */
+    color: black; /* Your desired text color */
+}
+
+/* Maintain the custom color when the accordion is collapsed */
+.accordion-button.collapsed {
+    background-color: rgba(93, 76, 238, 0.1);; /* Same custom background color */
+    color: black; /* Same custom text color */
+}
