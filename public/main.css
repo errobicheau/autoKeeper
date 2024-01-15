@@ -219,3 +219,10 @@ footer {
 body {
     animation: fadeIn 0.25s ease-in-out;
 }
+
+
+@media screen and (max-width: 483px) {
+    #collapseAll {
+        margin-top: 0.5em; 
+    }
+}
