@@ -1,19 +1,23 @@
 <% if (services && services.length > 0) { %>
+<div class="w-75 mx-auto">
     <h5 class="mx-auto text-center mt-5 mb-3">Previous service logs for <span class="special"><%= vehicles[0].year %> <%= vehicles[0].make %> <%= vehicles[0].model %>:</span></h5>
     <div class="text-center mb-4">
         <button class="btn btn-custom-2" id="logService"><i class="fa-solid fa-plus"></i> Log Service</button>
         <button class="btn btn-secondary mx-1" id="expandAll">Expand All</button>
         <button class="btn btn-secondary" id="collapseAll">Collapse All</button>
     </div>
+</div>
 <% } else { %>
+<div class="w-75 mx-auto">
     <h5 class="mx-auto text-center mt-5 mb-3"> Logs will appear below when added. Get started by <span class="special">logging your first service.</span></h5>
     <div class="text-center mb-3">
         <button class="btn btn-custom-2" id="logService"><i class="fa-solid fa-plus"></i> Log First Service</button>
     </div>
+</div>
 <% } %>
 
 <% if( services && services.length > 0) { %>
-<div class="container" style="width:80%;">
+<div class="container w-75">
     <% let index = 1; %>  
     <% services.forEach(service => { %>
     <div class="accordion mx-auto">
