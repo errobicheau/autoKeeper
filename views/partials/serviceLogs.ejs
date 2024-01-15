@@ -1,0 +1,54 @@
+<% if (services && services.length > 0) { %>
+    <h5 class="mx-auto text-center mt-5 mb-3">Previous service logs for <span class="special"><%= vehicles[0].year %> <%= vehicles[0].make %> <%= vehicles[0].model %>:</span></h5>
+    <div class="text-center mb-4">
+        <button class="btn btn-custom-2" id="logService"><i class="fa-solid fa-plus"></i> Log Service</button>
+        <button class="btn btn-secondary mx-1" id="expandAll">Expand All</button>
+        <button class="btn btn-secondary" id="collapseAll">Collapse All</button>
+    </div>
+<% } else { %>
+    <h5 class="mx-auto text-center mt-5 mb-3"> Logs will appear below when added. Get started by <span class="special">logging your first service.</span></h5>
+    <div class="text-center mb-3">
+        <button class="btn btn-custom-2" id="logService"><i class="fa-solid fa-plus"></i> Log First Service</button>
+    </div>
+<% } %>
+
+<% if( services && services.length > 0) { %>
+<div class="container" style="width:80%;">
+    <% let index = 1; %>  
+    <% services.forEach(service => { %>
+    <div class="accordion mx-auto">
+        <div class="accordion-item mb-1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-expanded="true" aria-controls="collapse<%= index %>">
+                <h5 class="accordion-header">
+                    Service <%= service.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %>
+                </h5>
+            </button>
+            <div id="collapse<%= index %>" class="accordion-collapse collapse hide p-2" data-bs-parent="#accordionExample">
+                <div class="accordion-body d-flex">
+                    <div class="text-content">
+                        <h5>Mileage: <%= service.mileage %></h5>
+                        <p>
+                        Service Performed: <%= service.typeOfService %> <br>
+                        Service Notes: <%= service.serviceNotes %> <br>
+                        </p>
+                    <% if (currentUser && service.user._id.equals(currentUser._id)) {%>
+                        <div class="d-flex">
+                            <a href="/edit/<%= service._id %>" class="btn btn-custom-2"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+
+                            <form action="/delete/<%= service._id %>" method="POST">
+                                <button type="submit" class="btn btn-danger mx-2"><i class="fa-solid fa-trash-can"></i> Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% index++; %>
+    <% }) %>
+</div>
+<% } %>
+
+<script src="main.js">
+</script>

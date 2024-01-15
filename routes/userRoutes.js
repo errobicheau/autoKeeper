@@ -2,17 +2,12 @@
 
 const express = require('express')
 const userController = require('../controllers/userController')
-const passport = require('passport')
 const router = express.Router()
 
 router
     .route('/login')
     .get(userController.loginPage)
     .post(userController.loginUser)
-
-router
-    .route('/googleLogin')
-    .get(passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router
     .route('/register')

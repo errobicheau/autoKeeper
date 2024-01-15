@@ -1,0 +1,31 @@
+<% if (services && services.length > 0) { %> <!-- If data is found -->
+    <% services.sort((a, b) => b.date - a.date) %>
+    <div class="card mb-2">
+        <div class="card-body">
+            <p>Mileage Last Serviced:</p>
+                <h3><i class="fa-solid fa-gauge"></i></i><%= services[0].mileage %></h3>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p>Date Last Serviced:</p>
+            <h3 class="stat stat-ltr"><i class="fa-regular fa-calendar-days"></i><%= services[0].date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %></h3>
+            <p>Summary: <%= services[0].typeOfService %></p>
+                
+        </div>
+    </div>
+    <% } else { %> <!-- If no data is found -->
+        <div class="card mb-2">
+            <div class="card-body">
+                <p>Mileage Last Serviced:</p>
+                <h3><i class="fa-solid fa-gauge"></i></i>No recent services</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p>Date Last Serviced:</p>
+                <h3 class="stat stat-ltr"><i class="fa-regular fa-calendar-days"></i>No recent services.</h3>
+                <p>No recent services.</p>  
+            </div>
+        </div>
+    <% } %>

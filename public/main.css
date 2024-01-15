@@ -1,150 +1,221 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
 .center-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-
-input[type='text'],
-input[type="password"] {
-    background-color: lightgray;
+input[type='text']:focus, input[type="password"]:focus {
+    background-color: rgb(246, 245, 245);
     color: black;
 }
-
-input[type='text']:focus,
-input[type="password"]:focus {
-    background-color: lightgray;
-    color: black;
-}
-
 #video-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Adjust the height as needed */
+    height: 100vh;
+   /* Adjust the height as needed */
     overflow: hidden;
 }
-
 #video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintain video aspect ratio and cover the container */
+    object-fit: cover;
+   /* Maintain video aspect ratio and cover the container */
 }
-
-
-
-
 /* FORM STYLES */
 ::placeholder {
     color: rgba(0, 0, 0, 0.424) !important;
 }
-
 .form-outline input:focus {
     border-color: rgb(93, 76, 238);
 }
-
 .form-outline input:focus {
-    box-shadow: 0 0 0.2rem 0.1rem rgba(93, 76, 238); /* Change the color and opacity as needed */
+    box-shadow: 0 0 0.175rem 0.075rem rgb(93, 76, 238);
+   /* Change the color and opacity as needed */
 }
-
 /* Add this to your main.css or a custom stylesheet */
-
 .google-login-button {
-    background-color: #4285F4; /* Google Blue */
-    color: #fff; /* White text */
-    border: 1px solid #4285F4; /* Google Blue border */
-    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #4285F4;
+   /* Google Blue */
+    color: #fff;
+   /* White text */
+    border: 1px solid #4285F4;
+   /* Google Blue border */
+    padding: 10px 20px;
+   /* Adjust padding as needed */
     text-decoration: none;
     display: inline-block;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    border-radius: 5px;
+   /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+   /* Smooth transition */
 }
-
 .google-login-button:hover {
-    background-color: #3e78e6; /* Darker Google Blue on hover */
-    border-color: #3e78e6; /* Darker Google Blue border on hover */
-    color: #fff; /* White text on hover */
+    background-color: #3e78e6;
+   /* Darker Google Blue on hover */
+    border-color: #3e78e6;
+   /* Darker Google Blue border on hover */
+    color: #fff;
+   /* White text on hover */
 }
-
-
 /* IMAGE STYLES */
-
+.brand {
+    display: block;
+    width: 500px;
+    height: auto;
+}
 /* Add this CSS in your stylesheet or within a style tag in your HTML file */
 .img-small {
     max-width: 350px;
-    /* You can also set a max-height if needed */
-    /* max-height: 150px; */
+   /* You can also set a max-height if needed */
+   /* max-height: 150px;
+    */
 }
-
 .btn-custom {
-    font-size: 18px; /* Custom font size */
-    padding: 5px 10px; /* Custom padding */
+    font-size: 18px;
+    padding: 5px 10px;
     color: black;
-    width: 80%; 
+    width: 80%;
 }
-
 .btn-custom:hover {
     border-color: rgb(93, 76, 238);
-    box-shadow: 0 0 0.2rem 0.1rem rgba(93, 76, 238); 
+    box-shadow: 0 0 0.2rem 0.1rem rgb(93, 76, 238);
 }
-
+.btn-custom-2 {
+    background-color: rgb(93, 76, 238);
+    color: white;
+}
+.btn-custom-2:hover {
+    background-color: rgb(76, 59, 229);
+    color: white;
+}
 .special {
-    color: rgb(93, 76, 238)
+    color: rgb(93, 76, 238) 
 }
-
 .red-border {
     border: 2px solid red;
 }
-
-
+i {
+    margin-right: 0.25em;
+}
+.form-group label {
+    margin-bottom: 0.25em;
+}
 .nav-link {
     text-decoration: none;
     color: rgb(86, 87, 87);
-    padding: 10px 0px;
-    margin: 0px 2px;
+    padding: 10px 0;
+    margin: 0 2px;
     display: inline-block;
     position: relative;
     opacity: 0.85;
-  }
-
-  .nav-link:hover {
+}
+.nav-link:hover {
     opacity: 1;
     color: black;
-  }
-  
-  .nav-link::before {
+}
+.nav-link::before {
     transition: 300ms;
     height: 2px;
     content: "";
     position: absolute;
-    background-color: rgb(93, 76, 238)
-  }
-  
-  .nav-link-ltr::before {
-    width: 0%;
-    bottom: 10px;
-  }
-  
-  .nav-link-ltr:hover::before {
-    width: 80%;
-  }
-
-  .red:hover {
-    color: rgb(203, 0, 0);
-  }
-
-  .red:hover::before {
-    background-color: rgb(203, 0, 0);
-  }
-  .accordion-button:not(.collapsed) {
-    background-color: rgba(93, 76, 238, 0.1); /* Your desired background color */
-    color: black; /* Your desired text color */
+    background-color: rgb(93, 76, 238) 
 }
-
+.nav-link-ltr::before {
+    width: 0;
+    bottom: 10px;
+}
+.nav-link-ltr:hover::before {
+    display: block;
+    width: 85%;
+    position: absolute;
+}
+.red:hover {
+    color: rgb(203, 0, 0);
+}
+.red:hover::before {
+    background-color: rgb(203, 0, 0);
+}
+.accordion-button:not(.collapsed) {
+    background-color: rgba(93, 76, 238, 0.1);
+    color: black;
+}
 /* Maintain the custom color when the accordion is collapsed */
 .accordion-button.collapsed {
-    background-color: rgba(93, 76, 238, 0.1);; /* Same custom background color */
-    color: black; /* Same custom text color */
+    background-color: rgba(93, 76, 238, 0.1);
+   ;
+   /* Same custom background color */
+    color: black;
+   /* Same custom text color */
+}
+
+#overlay {
+    position: fixed;
+   /* Full-screen overlay */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 1000;
+   /* Ensure it's above all other content */
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+#overlay img{
+    max-width: 100%;
+   /* Adjust as needed */
+    max-height: 100%;
+   /* Adjust as needed */
+    display: block;
+   /* Remove any default margins */
+    margin-top: -25em;
+}
+/* style.css */
+#fadeInContainer {
+    opacity: 0;
+    transition: opacity 0.35s ease-in;
+   /* Adjust the duration as needed */
+   /* Other styles for your container */
+}
+.content {
+    min-height: 100%;
+   /* Adjust the value below to be the height of your footer */
+   /* Negative value of the footer height */
+}
+.content:after {
+    content: '';
+    display: block;
+}
+footer, .content:after {
+    margin-bottom: -50px;
+    height: 50px;
+}
+footer {
+    color: lightgray;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.25s ease-in-out;
 }

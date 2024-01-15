@@ -95,6 +95,7 @@ const vehiclePage = (req, res) => {
 const newVehicle = async (req, res) => {
         const vehicle = new Vehicle ({
             name: req.body.name,
+            type: req.body.type,
             year: req.body.year,
             make: req.body.make,
             model: req.body.model,

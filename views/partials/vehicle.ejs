@@ -1,0 +1,16 @@
+
+<div class="card h-100 p-3">
+    <% if(vehicles && vehicles.length > 0) { %>
+        <div class="card-body">
+            <% vehicles.forEach(vehicle => { %>
+                <h3><i class="fa-solid fa-car"></i> <%= vehicle.name %></h3> <br>
+                <h5><%= vehicle.year %> <%= vehicle.make %> <%= vehicle.model %></h5> <br>
+                <h5><%= vehicle.otherInfo %></h5> <br>
+                <a href="/editVehicle/<%=vehicle._id%>" class="text-primary text-decoration-none text-black small"><i class="fa-solid fa-pen special"></i> Update Vehicle Info</a>
+            <% }) %>
+            </div>   
+    <% } else { %>
+        <p class="text-center mt-5">No vehicle currently saved.</p>
+        <a href="/vehicle" class="btn btn-custom text mx-auto"><i class="fa-solid fa-plus"></i> Add Vehicle Info</a>
+    <% } %>
+</div>

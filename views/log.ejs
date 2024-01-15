@@ -14,32 +14,30 @@
         
       <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-top h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card-body p-2 text-center bg-light">
-                    <p class="mb-3">Edit Maintenance Entry:</p>
+            <div class="col-12 col-md-12 col-lg-10 col-xl-10 ">
+                <div class="card-body px-5 py-4 text-center bg-light" style="border-radius: 10px;">
+                    <h3 class="mb-3">Log Service</h3>
                     <div class="d-grid gap-2">
                       <form action="/service" method="POST" id="serviceForm">
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="date">Date</label>
                           <input type="date" class="form-control" id="date" name="date" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="mileage">Mileage:</label>
                           <input type="text" class="form-control" id="mileage" name="mileage" required>
                         </div>
-                        <div class="form-group">
-                          <label for="typeOfService">Service Performed:</label>
+                        <div class="form-group mb-3">
+                          <label for="typeOfService">Service(s) Performed:</label>
                           <input type="text" class="form-control" id="typeOfService" name="typeOfService" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="serviceNotes">Service Notes</label>
-                          <input type="text" class="form-control" id="serviceNotes" name="serviceNotes" required>
+                          <textarea class="form-control" id="serviceNotes" name="serviceNotes"
+                          rows ="4" 
+                          cols="50" required> </textarea>
                         </div>
-                        <!-- <div class="form-group">
-                          <label for="file" class="form-label">Image</label>
-                          <input type="file" class="form-control" id="file" name="file">
-                        </div> -->
-                        <button type="submit" class="btn btn-custom">Submit</button>
+                        <button type="submit" class="btn btn-custom-2 mb-3 w-50">SUBMIT</button>
                       </form>
                     </div>
                   </div>

@@ -12,38 +12,36 @@
 
     <section class="vh-100 gradient-custom">
         
-      <div class="container py-5 h-100">
+      <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-top h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card-body p-2 text-center bg-light">
-                    <p class="mb-3">Edit Maintenance Entry:</p>
+            <div class="col-12 col-md-12 col-lg-10 col-xl-10 ">
+              <div class="card-body px-5 py-4 text-center bg-light" style="border-radius: 10px;">
+                <h3 class="mb-3">Add Your Vehicle</h3>
+                <div class="d-grid gap-2">
                     <div class="d-grid gap-2">
                       <form action="/vehicle" method="POST" id="serviceForm">
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="name">Vehicle Name:</label>
                           <input type="text" class="form-control" id="name" name="name" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="year">Year:</label>
                           <input type="text" class="form-control" id="year" name="year" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="make">Make:</label>
                           <input type="make" class="form-control" id="make" name="make" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="model">Model:</label>
                           <input type="text" class="form-control" id="model" name="model" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                           <label for="otherInfo">Other Info:</label>
                           <input type="text" class="form-control" id="otherInfo" name="otherInfo" required>
                         </div>
-                        <!-- <div class="form-group">
-                          <label for="file" class="form-label">Image</label>
-                          <input type="file" class="form-control" id="file" name="file">
-                        </div> -->
-                        <button type="submit" class="btn btn-custom">Submit</button>
+                        <button type="submit" class="btn btn-custom-2 w-50 mb-3">Submit</button>
                       </form>
                     </div>
                   </div>
