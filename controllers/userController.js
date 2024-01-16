@@ -3,14 +3,31 @@ const User = require('../models/userModel');
 const flash = require('connect-flash')
 
 const loginPage = (req, res) => {
-  res.render('login', {user: req.user });
+  res.render('login', {user: req.user, messages: req.flash('error') || []});
 };
 
-const loginUser = passport.authenticate('local', {
-  successRedirect: '/home',
-  failureRedirect: '/login',
-  failureFlash: true
-});
+const loginUser = (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) {
+      console.error(err);
+      return next(err);
+    }
+    if (!user) {
+      req.flash('error', `User not found. Please check username and password and try again.`);
+      return res.render('login', {
+        messages: req.flash('error') || []
+      });
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        console.error(err);
+        return next(err);
+      }
+      return res.redirect('/home');
+    });
+  })(req, res, next);
+};
+
 
 const registerPage = (req, res) => {
   res.render('register', {
@@ -31,11 +48,9 @@ const registerUser = async (req, res) => {
   } catch (err) {
     console.error(err.message);
     req.flash('error', (`${err.message}. Please try again.`));
-
-    
     res.render('register', { 
       user: req.user,
-      messages: req.flash('error') || [] // Ensure 'messages' is always defined
+      messages: req.flash('error') || []
     })
   };
 }

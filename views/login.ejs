@@ -36,6 +36,12 @@
                           placeholder="Password">
                         </div>
                         <button class="btn btn-custom-2 w-75" type="submit"><i class="fa-solid fa-right-to-bracket"></i>  LOGIN </button> <br>
+                      </form>
+                      <% if (messages && messages.length > 0) { %>
+                        <div class="alert alert-danger my-3">
+                          <%= messages[0] %>
+                        </div>
+                      <% } %>
                         <p class="small mt-2 mb-2 pb-lg-2 pt-3"><a class="text-black" href="/register">Don't have an account? Register here.</a></p>
                     </div>
                   </div>
