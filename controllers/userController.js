@@ -1,5 +1,6 @@
 const passport = require('passport');
 const User = require('../models/userModel');
+const flash = require('connect-flash')
 
 const loginPage = (req, res) => {
   res.render('login', {user: req.user });
@@ -8,12 +9,16 @@ const loginPage = (req, res) => {
 const loginUser = passport.authenticate('local', {
   successRedirect: '/home',
   failureRedirect: '/login',
-  failureFlash: false
+  failureFlash: true
 });
 
 const registerPage = (req, res) => {
-  res.render('register', {user: req.user });
+  res.render('register', {
+    user: req.user,
+    messages: req.flash('error') || []
+  });
 };
+
 
 const registerUser = async (req, res) => {
   try {
@@ -24,10 +29,17 @@ const registerUser = async (req, res) => {
       res.redirect('/home');
     });
   } catch (err) {
-    console.log(err);
-    res.redirect('/register');
-  }
-};
+    console.error(err.message);
+    req.flash('error', (`${err.message}. Please try again.`));
+
+    
+    res.render('register', { 
+      user: req.user,
+      messages: req.flash('error') || [] // Ensure 'messages' is always defined
+    })
+  };
+}
+
 
 const logoutUser = (req, res) => {
     req.logout(function(err) {

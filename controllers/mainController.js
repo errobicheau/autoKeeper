@@ -1,6 +1,6 @@
 const Service = require('../models/serviceModel')
 const Vehicle = require('../models/vehicleModel')
-const cloudinary = require('../config/cloudinary')
+const flash = require('connect-flash')
 
 const servicePage = (req, res) =>  {
     res.render('log', {user: req.user})
@@ -16,7 +16,6 @@ const homePage = async (req, res) => {
         const userId = req.user._id
         const services = await Service.find({ user: userId}).populate('user')
         const vehicles = await Vehicle.find({ user: userId}).populate('user')
-        console.log(services)
         res.render('home', {services: services, user: req.user, vehicles: vehicles})
     } else {
         res.redirect('/')
@@ -27,6 +26,8 @@ const homePage = async (req, res) => {
     }
 }
 
+// SERVICE METHODS
+
 const newService = async (req, res) => {
     console.log(req.body)
 
@@ -35,8 +36,6 @@ const newService = async (req, res) => {
         mileage: req.body.mileage,
         typeOfService: req.body.typeOfService,
         serviceNotes: req.body.serviceNotes,
-        // image: result.secure_url,
-        // cloudinaryId: result.public_id,
         user: req.user._id 
     })
 

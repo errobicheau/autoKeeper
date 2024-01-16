@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const cloudinary = require('../config/cloudinary')
 
 const serviceSchema = new mongoose.Schema({
     date: Date,

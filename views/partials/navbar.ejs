@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-    <!-- Branding Image -->
+    <!-- Left Aligned User Information -->
     <a class="navbar-brand" href="/">
         <img src="/images/logos/logoSVG.svg" class="img-fluid brand" alt="" style="max-width: 100px;">
     </a>
@@ -12,8 +12,6 @@
     <!-- Navbar Content -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <!-- Navigation Links -->
-            <!-- Conditional Rendering for Login/Register or Service/Logout -->
             <% if (!user) { %>
                 <a class="nav-link nav-link-ltr" href="/">Home</a>
                 <a class="nav-link nav-link-ltr" href="/login">Login</a>

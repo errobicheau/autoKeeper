@@ -8,9 +8,8 @@ require('./config/passport')
 const connectDB = require('./config/connectDB')
 const mainRoutes = require('./routes/mainRoutes')
 const userRoutes = require('./routes/userRoutes')
-const authRoutes = require('./routes/authRoutes')
 const User = require('./models/userModel')
-const fileUpload = require('express-fileupload')
+const flash = require('connect-flash')
 
 const PORT = process.env.port || 3500
 
@@ -36,6 +35,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+//connect-flash
+app.use(flash())
+
 //-- VIEW ENGINE --//
 app.set('view engine', 'ejs')
 
@@ -44,12 +46,10 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user
     next()
 })
-app.use(fileUpload({useTempFiles: true}))
 
 //-- ROUTING --//
 app.use('/', mainRoutes)
 app.use('/', userRoutes)
-app.use('/auth', authRoutes)
 
 
 //-- DATABASE AND SERVER CONNEC --//

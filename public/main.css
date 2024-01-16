@@ -16,7 +16,6 @@ input[type='text']:focus, input[type="password"]:focus {
     position: relative;
     width: 100%;
     height: 100vh;
-   /* Adjust the height as needed */
     overflow: hidden;
 }
 #video {
@@ -26,8 +25,8 @@ input[type='text']:focus, input[type="password"]:focus {
     width: 100%;
     height: 100%;
     object-fit: cover;
-   /* Maintain video aspect ratio and cover the container */
 }
+
 /* FORM STYLES */
 ::placeholder {
     color: rgba(0, 0, 0, 0.424) !important;
@@ -37,45 +36,16 @@ input[type='text']:focus, input[type="password"]:focus {
 }
 .form-outline input:focus {
     box-shadow: 0 0 0.175rem 0.075rem rgb(93, 76, 238);
-   /* Change the color and opacity as needed */
 }
-/* Add this to your main.css or a custom stylesheet */
-.google-login-button {
-    background-color: #4285F4;
-   /* Google Blue */
-    color: #fff;
-   /* White text */
-    border: 1px solid #4285F4;
-   /* Google Blue border */
-    padding: 10px 20px;
-   /* Adjust padding as needed */
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-   /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease;
-   /* Smooth transition */
-}
-.google-login-button:hover {
-    background-color: #3e78e6;
-   /* Darker Google Blue on hover */
-    border-color: #3e78e6;
-   /* Darker Google Blue border on hover */
-    color: #fff;
-   /* White text on hover */
-}
+
 /* IMAGE STYLES */
 .brand {
     display: block;
     width: 500px;
     height: auto;
 }
-/* Add this CSS in your stylesheet or within a style tag in your HTML file */
 .img-small {
     max-width: 350px;
-   /* You can also set a max-height if needed */
-   /* max-height: 150px;
-    */
 }
 .btn-custom {
     font-size: 18px;
@@ -97,9 +67,6 @@ input[type='text']:focus, input[type="password"]:focus {
 }
 .special {
     color: rgb(93, 76, 238) 
-}
-.red-border {
-    border: 2px solid red;
 }
 i {
     margin-right: 0.25em;
@@ -142,17 +109,16 @@ i {
 .red:hover::before {
     background-color: rgb(203, 0, 0);
 }
+
+/* Accordion Styles */
 .accordion-button:not(.collapsed) {
     background-color: rgba(93, 76, 238, 0.1);
     color: black;
 }
-/* Maintain the custom color when the accordion is collapsed */
 .accordion-button.collapsed {
     background-color: rgba(93, 76, 238, 0.1);
    ;
-   /* Same custom background color */
     color: black;
-   /* Same custom text color */
 }
 
 #overlay {
