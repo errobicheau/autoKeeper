@@ -1,5 +1,5 @@
 ![AutoKeeper Project Logo](public/images/cover1.png)
-# AutoKeeper - Full Stack Web Application
+# AutoKeeper - Maintenance Made Simple
 AutoKeeper is a comprehensive vehicle maintenance web app that allows users to efficiently log and track their vehicles' maintenance records, including service mileage, services performed, and other vehicle information pertinent to the overall good health of your vehicle.
 
 **View Project Live:** [autokeeper.cyclic.app](http://autokeeper.cyclic.app)
