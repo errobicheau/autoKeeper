@@ -31,9 +31,9 @@ No matter what your experience level, being an engineer means continuously learn
 ## Examples:
 If you enjoy AutoKeeper, I would be thrilled to have you check out some of my other work. Here are a few examples:
 
-**myCocktail.io:** https://github.com/alecortega/palettable
+**myCocktail.io:** https://github.com/errobicheau/myCocktail.io
 
-**catBook:** https://github.com/alecortega/twitter-battle
+catBook: https://github.com/errobicheau/catBook
 
 
 
