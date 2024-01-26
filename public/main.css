@@ -125,6 +125,11 @@ footer {
     line-height: 100px;
 }
 
+footer a {
+    color: lightgray;
+    text-decoration: none;
+}
+
 
 @keyframes fadeIn {
     from {
